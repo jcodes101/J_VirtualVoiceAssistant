@@ -1,0 +1,37 @@
+Elevenlabs API has a Conversation AI API that is used to make the virtual assistant
+
+1. The API records the user's voice through microphone
+
+2. It processes and knows when the user is done speaking or they are interrupted
+
+3. The API makes a call to the LLM to generate a response
+
+4. The response is synthesized into speech
+
+5. It plays the synthesized speech through speakers
+
+
+Project Overview and Capabilities:
+----------------------------------
+This project is a Python-based voice assistant built using the ElevenLabs Conversation AI API. Below is a summary of its main functions and capabilities:
+
+- **Configuration & Setup:**
+  - Loads API credentials (AGENT_ID, API_KEY) from a `.env` file for secure access.
+  - Sets up user-specific variables (e.g., user name, schedule) and dynamically configures the agent's prompt and first message.
+  - Applies a monkey-patch to the ElevenLabs `ConversationConfig` to support a custom `user_id` field.
+
+- **Session Flow:**
+  - Initializes an ElevenLabs client and configures a conversation session with custom prompts and dynamic variables.
+  - Starts a voice assistant session that listens for user input via microphone, processes the input, and interacts with the LLM to generate responses.
+  - Synthesizes the LLM's response into speech and plays it back to the user.
+
+- **Callback Functions:**
+  - Handles and prints the agent's responses, user transcripts, and manages interruptions (e.g., if the agent is cut off mid-response).
+  - Provides clear feedback in the console for both user and agent utterances, as well as any corrections to interrupted responses.
+
+- **Overall Capabilities:**
+  - Real-time, interactive voice conversation with an AI assistant.
+  - Customizable prompts and session variables for personalized experiences.
+  - Robust handling of session events, including interruptions and dynamic configuration.
+
+This setup allows for a flexible, extensible virtual assistant that can be tailored to different users and scenarios using the ElevenLabs platform.
